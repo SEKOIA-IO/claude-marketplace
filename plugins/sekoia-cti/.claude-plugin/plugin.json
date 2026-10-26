@@ -1,0 +1,21 @@
+{
+  "name": "sekoia-cti",
+  "description": "Sekoia MCP Server for threat intelligence. Ask CTI questions in natural language (indicators, actors, sectors, CVEs, campaigns, reports), check whether a threat already fired or appears in your own Sekoia telemetry, derive hunt packs from FLINT reports, and produce evidence-disciplined Sekoia Intelligence reports: exposure assessments and sector RFIs, threat horizon assessments, intelligence delta briefs, with an evidence manifest, HTML and PDF.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Sekoia"
+  },
+  "homepage": "https://docs.sekoia.com/integration/mcp/how_to_cti/",
+  "repository": "https://github.com/SEKOIA-IO/claude-marketplace",
+  "license": "Apache-2.0",
+  "keywords": [
+    "sekoia",
+    "cti",
+    "threat-intelligence",
+    "exposure-assessment",
+    "rfi",
+    "threat-horizon",
+    "mcp",
+    "hunting"
+  ]
+}

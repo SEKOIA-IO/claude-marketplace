@@ -1,0 +1,10 @@
+{
+  "name": "sekoia-soc",
+  "description": "Sekoia MCP Server for SOC work. Gather everything on an alert, summarise a case as a timeline, and turn natural-language questions into bounded SOL queries on your Sekoia community. Read-only.",
+  "version": "0.1.0",
+  "author": { "name": "Sekoia" },
+  "homepage": "https://docs.sekoia.com/integration/mcp/how_to_soc/",
+  "repository": "https://github.com/SEKOIA-IO/claude-marketplace",
+  "license": "Apache-2.0",
+  "keywords": ["sekoia", "soc", "alerts", "cases", "sol", "hunting", "mcp"]
+}

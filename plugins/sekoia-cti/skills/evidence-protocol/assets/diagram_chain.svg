@@ -1,0 +1,70 @@
+<!--
+  Mechanism chain, house pill style. Fill every {{TOKEN}}.
+  Grid: pill 120x46 rx 23, gap 36, row pitch 80. Row of five pills = viewBox width 784.
+  Add a pill: copy a <g class="pill"> and shift x by 156 (120 + 36). Remove the arrow after the last pill.
+  Wrap: keep at most five pills per row; the elbow <polyline> below joins row 1 to row 2. Delete it for a single row.
+  Fork: the two half pills at the left are two entry doors merging into the first shared pill. Delete the group for a single door.
+  The model or target pill uses class "model" (amber dashed). The note box is optional; delete it when nothing must be kept separate.
+  Height: 100 for one row, 180 for two rows, add 46 when the note box is present.
+-->
+<figure>
+<svg viewBox="0 0 784 226" role="img" aria-label="{{CLAIM}}" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" font-size="10.5" color="#04286A">
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="currentColor"/>
+    </marker>
+  </defs>
+
+  <!-- OPTIONAL fork: two entry doors merging into the first shared pill -->
+  <g class="fork">
+    <rect x="20" y="10" width="120" height="30" rx="15" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+    <text x="80" y="29" text-anchor="middle" fill="currentColor">{{DOOR_1}}</text>
+    <rect x="20" y="50" width="120" height="30" rx="15" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+    <text x="80" y="69" text-anchor="middle" fill="currentColor">{{DOOR_2}}</text>
+    <polyline points="140,25 158,25 158,45 176,45" fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#arrow)"/>
+    <polyline points="140,65 158,65 158,45 176,45" fill="none" stroke="currentColor" stroke-width="1"/>
+  </g>
+
+  <!-- Row 1: pills at x = 176, 332, 488, 644 (fork) or 20, 176, 332, 488, 644 (no fork) -->
+  <g class="pill">
+    <rect x="176" y="22" width="120" height="46" rx="23" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+    <text x="236" y="42" text-anchor="middle" fill="currentColor"><tspan x="236">{{STEP_1_LINE_1}}</tspan><tspan x="236" dy="13">{{STEP_1_LINE_2}}</tspan></text>
+    <line x1="296" y1="45" x2="330" y2="45" stroke="currentColor" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="313" y="38" text-anchor="middle" font-size="9" fill="currentColor">{{ARROW_1_LABEL}}</text>
+  </g>
+  <g class="pill">
+    <rect x="332" y="22" width="120" height="46" rx="23" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+    <text x="392" y="42" text-anchor="middle" fill="currentColor"><tspan x="392">{{STEP_2_LINE_1}}</tspan><tspan x="392" dy="13">{{STEP_2_LINE_2}}</tspan></text>
+    <line x1="452" y1="45" x2="486" y2="45" stroke="currentColor" stroke-width="1" marker-end="url(#arrow)"/>
+  </g>
+  <g class="pill">
+    <rect x="488" y="22" width="120" height="46" rx="23" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+    <text x="548" y="42" text-anchor="middle" fill="currentColor"><tspan x="548">{{STEP_3_LINE_1}}</tspan><tspan x="548" dy="13">{{STEP_3_LINE_2}}</tspan></text>
+    <line x1="608" y1="45" x2="642" y2="45" stroke="currentColor" stroke-width="1" marker-end="url(#arrow)"/>
+  </g>
+  <g class="pill">
+    <rect x="644" y="22" width="120" height="46" rx="23" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+    <text x="704" y="42" text-anchor="middle" fill="currentColor"><tspan x="704">{{STEP_4_LINE_1}}</tspan><tspan x="704" dy="13">{{STEP_4_LINE_2}}</tspan></text>
+  </g>
+
+  <!-- OPTIONAL wrap: elbow from the last pill of row 1 to the first pill of row 2 -->
+  <polyline points="704,68 704,86 80,86 80,102" fill="none" stroke="currentColor" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Row 2: pills at x = 20, 176, 332, 488, 644; y = 102 -->
+  <g class="pill">
+    <rect x="20" y="102" width="120" height="46" rx="23" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+    <text x="80" y="122" text-anchor="middle" fill="currentColor"><tspan x="80">{{STEP_5_LINE_1}}</tspan><tspan x="80" dy="13">{{STEP_5_LINE_2}}</tspan></text>
+    <line x1="140" y1="125" x2="174" y2="125" stroke="currentColor" stroke-width="1" marker-end="url(#arrow)"/>
+  </g>
+  <g class="pill model">
+    <rect x="176" y="102" width="120" height="46" rx="23" fill="#fdf3e3" stroke="#b45309" stroke-width="1" stroke-dasharray="4 3"/>
+    <text x="236" y="122" text-anchor="middle" fill="#b45309"><tspan x="236">{{STEP_6_LINE_1}}</tspan><tspan x="236" dy="13">{{STEP_6_LINE_2}}</tspan></text>
+  </g>
+
+  <!-- OPTIONAL note box: the statement that keeps a second episode separate -->
+  <rect x="20" y="172" width="744" height="40" fill="#fdf3e3" stroke="#b45309" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="392" y="190" text-anchor="middle" font-size="9" letter-spacing="1" fill="#b45309">{{NOTE_LINE_1}}</text>
+  <text x="392" y="203" text-anchor="middle" font-size="9" fill="#b45309">{{NOTE_LINE_2}}</text>
+</svg>
+<figcaption>{{CLAIM}}</figcaption>
+</figure>

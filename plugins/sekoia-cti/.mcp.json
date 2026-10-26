@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "sekoia": {
+      "type": "http",
+      "url": "https://api.sekoia.io/v1/generative/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${SEKOIA_API_KEY}"
+      }
+    }
+  }
+}

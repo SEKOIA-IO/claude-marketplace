@@ -1,0 +1,34 @@
+<!--
+  Horizon strip (threat horizon assessment). Fill every {{TOKEN}}.
+  Axis x 60 to 740 at y 80. Evidence window: grey bar to the left of today. Today: vertical rule at x 400.
+  3 months at x 485, 12 months at x 740 (horizon end). Forecasts: diamonds on the axis at their expected month,
+  label above (10.5px), confidence word below (9px). Add a forecast: copy a <g class="forecast"> and set its x.
+  Invalidation criteria go in the forecast table or the caption, not in the drawing.
+-->
+<figure>
+<svg viewBox="0 0 760 140" role="img" aria-label="{{CLAIM}}" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" font-size="10.5" color="#04286A">
+  <!-- Evidence window -->
+  <rect x="60" y="73" width="340" height="14" rx="7" fill="#D3E8FF" stroke="currentColor"/>
+  <text x="230" y="62" text-anchor="middle" font-size="9" fill="currentColor">Evidence window: {{WINDOW_LABEL}}</text>
+
+  <!-- Axis -->
+  <line x1="60" y1="80" x2="740" y2="80" stroke="currentColor"/>
+  <line x1="400" y1="40" x2="400" y2="110" stroke="currentColor" stroke-dasharray="3 3"/>
+  <text x="400" y="34" text-anchor="middle" font-size="9" letter-spacing="1" fill="currentColor">TODAY {{TODAY}}</text>
+  <line x1="485" y1="76" x2="485" y2="84" stroke="currentColor"/><text x="485" y="124" text-anchor="middle" font-size="9" fill="#6F7376">3 months</text>
+  <line x1="740" y1="76" x2="740" y2="84" stroke="currentColor"/><text x="740" y="124" text-anchor="middle" font-size="9" fill="#6F7376">12 months</text>
+
+  <!-- Forecasts -->
+  <g class="forecast">
+    <polygon points="{{F1_X}},72 {{F1_X_R}},80 {{F1_X}},88 {{F1_X_L}},80" fill="#65C9FF" stroke="currentColor"/>
+    <text x="{{F1_X}}" y="58" text-anchor="middle" fill="currentColor">{{F1_LABEL}}</text>
+    <text x="{{F1_X}}" y="104" text-anchor="middle" font-size="9" fill="currentColor">{{F1_CONFIDENCE}}</text>
+  </g>
+  <g class="forecast">
+    <polygon points="{{F2_X}},72 {{F2_X_R}},80 {{F2_X}},88 {{F2_X_L}},80" fill="#65C9FF" stroke="currentColor"/>
+    <text x="{{F2_X}}" y="58" text-anchor="middle" fill="currentColor">{{F2_LABEL}}</text>
+    <text x="{{F2_X}}" y="104" text-anchor="middle" font-size="9" fill="currentColor">{{F2_CONFIDENCE}}</text>
+  </g>
+</svg>
+<figcaption>{{CLAIM}}</figcaption>
+</figure>

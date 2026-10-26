@@ -1,0 +1,52 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "sekoia",
+  "description": "Sekoia plugins for Claude Code: the Sekoia MCP Server connection with SOC and threat intelligence skills",
+  "owner": {
+    "name": "Sekoia",
+    "url": "https://www.sekoia.com"
+  },
+  "plugins": [
+    {
+      "name": "sekoia-cti",
+      "source": "./plugins/sekoia-cti",
+      "description": "Sekoia MCP Server for threat intelligence: natural-language CTI lookups, tenant checks and hunt packs derived from FLINT reports, plus evidence-disciplined exposure assessments, threat horizon assessments and intelligence delta briefs",
+      "version": "0.1.0",
+      "category": "security",
+      "tags": [
+        "sekoia",
+        "cti",
+        "threat-intelligence",
+        "exposure-assessment",
+        "rfi",
+        "mcp",
+        "hunting"
+      ],
+      "author": {
+        "name": "Sekoia"
+      },
+      "homepage": "https://docs.sekoia.com/integration/mcp/overview/",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "sekoia-soc",
+      "source": "./plugins/sekoia-soc",
+      "description": "Sekoia MCP Server for SOC work: everything on an alert, case summaries and SOL hunting in natural language on your Sekoia community",
+      "version": "0.1.0",
+      "category": "security",
+      "tags": [
+        "sekoia",
+        "soc",
+        "alerts",
+        "cases",
+        "sol",
+        "mcp"
+      ],
+      "author": {
+        "name": "Sekoia"
+      },
+      "homepage": "https://docs.sekoia.com/integration/mcp/overview/",
+      "license": "Apache-2.0"
+    }
+  ]
+}

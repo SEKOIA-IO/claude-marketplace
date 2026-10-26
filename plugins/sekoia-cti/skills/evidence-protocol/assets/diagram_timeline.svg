@@ -1,0 +1,49 @@
+<!--
+  Observation timeline. Fill every {{TOKEN}} and every x from the formula.
+  Label column x 0 to 150 (right-aligned at 146). Axis x 170 to 740. Lane height 34, first lane centre y 30.
+  x = 170 + (date - start) / (end - start) * 570, in days.
+  Bar (indicators only): first_seen to last_seen, height 14, rx 7, y = laneCentre - 7.
+  Filled dot r 5: first_seen; last_seen on non-indicator objects is not plotted. Hollow dot r 5 (fill white): publication date with no observation window.
+  Group rule: a light line and a caps label between lane groups (Sekoia windows above, government publications below).
+  Axis: line at y = lastLaneCentre + 24, year ticks every 570 / years px, tick labels 9px.
+  Height = 24 + 34 * lanes + 40 (+ 22 per group label).
+-->
+<figure>
+<svg viewBox="0 0 760 200" role="img" aria-label="{{CLAIM}}" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" font-size="10.5" color="#04286A">
+  <!-- Group label (optional) -->
+  <text x="170" y="14" font-size="9" letter-spacing="1.5" fill="#6F7376">{{GROUP_1_LABEL}}</text>
+
+  <!-- Lane 1: window bar plus a filled dot -->
+  <text x="146" y="34" text-anchor="end" fill="currentColor">{{LANE_1_LABEL}}</text>
+  <rect x="{{BAR_1_X}}" y="23" width="{{BAR_1_W}}" height="14" rx="7" fill="#D3E8FF" stroke="currentColor" stroke-width="1"/>
+  <text x="{{BAR_1_X}}" y="18" font-size="9" fill="currentColor">{{BAR_1_LABEL}}</text>
+  <circle cx="{{DOT_1_X}}" cy="30" r="5" fill="currentColor"/>
+  <text x="{{DOT_1_X}}" y="18" text-anchor="middle" font-size="9" fill="currentColor">{{DOT_1_LABEL}}</text>
+
+  <!-- Lane 2: hollow publication dot -->
+  <text x="146" y="68" text-anchor="end" fill="currentColor">{{LANE_2_LABEL}}</text>
+  <circle cx="{{DOT_2_X}}" cy="64" r="5" fill="#ffffff" stroke="currentColor" stroke-width="1.5"/>
+  <text x="{{DOT_2_X}}" y="52" text-anchor="middle" font-size="9" fill="currentColor">{{DOT_2_LABEL}}</text>
+
+  <!-- Group rule and second group label (optional) -->
+  <line x1="170" y1="86" x2="740" y2="86" stroke="#DADCDE" stroke-width="1"/>
+  <text x="170" y="100" font-size="9" letter-spacing="1.5" fill="#6F7376">{{GROUP_2_LABEL}}</text>
+
+  <!-- Lane 3 -->
+  <text x="146" y="122" text-anchor="end" fill="currentColor">{{LANE_3_LABEL}}</text>
+  <circle cx="{{DOT_3_X}}" cy="118" r="5" fill="#ffffff" stroke="currentColor" stroke-width="1.5"/>
+  <text x="{{DOT_3_X}}" y="106" text-anchor="middle" font-size="9" fill="currentColor">{{DOT_3_LABEL}}</text>
+
+  <!-- Axis with year ticks -->
+  <line x1="170" y1="150" x2="740" y2="150" stroke="currentColor" stroke-width="1"/>
+  <g font-size="9" fill="currentColor" text-anchor="middle">
+    <line x1="170" y1="150" x2="170" y2="156" stroke="currentColor"/><text x="170" y="168">{{YEAR_1}}</text>
+    <line x1="312" y1="150" x2="312" y2="156" stroke="currentColor"/><text x="312" y="168">{{YEAR_2}}</text>
+    <line x1="455" y1="150" x2="455" y2="156" stroke="currentColor"/><text x="455" y="168">{{YEAR_3}}</text>
+    <line x1="597" y1="150" x2="597" y2="156" stroke="currentColor"/><text x="597" y="168">{{YEAR_4}}</text>
+    <line x1="740" y1="150" x2="740" y2="156" stroke="currentColor"/><text x="740" y="168">{{YEAR_5}}</text>
+  </g>
+  <text x="170" y="190" font-size="9" fill="#6F7376">Bar: indicator first_seen to last_seen. Filled dot: first_seen. Hollow dot: publication date.</text>
+</svg>
+<figcaption>{{CLAIM}}</figcaption>
+</figure>
